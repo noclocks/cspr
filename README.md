@@ -1,10 +1,15 @@
 
-# cspr
+# Charles Street Partners R Package - `cspr`
 
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of cspr is to ...
+## Overview
+
+This package is designed to provide tools and functions for data analysis, visualization, and reporting tailored to the
+needs of Charles Street Partners.
+
+It includes utilities for data manipulation, statistical analysis, and generating reports.
 
 ## Installation
 

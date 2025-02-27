@@ -75,6 +75,55 @@ clean_address <- function(address) {
 
 }
 
+#' Clean Company Name
+#'
+#' @description
+#' Cleanse and format a company name by removing common suffixes and
+#' non-alphanumeric characters, and converting it to lowercase.
+#'
+#' @param company_name Character string representing the company name to be cleaned.
+#'
+#' @returns
+#' A character string representing the cleansed and formatted company name.
+#'
+#' @export
+#'
+#' @importFrom stringr str_replace_all str_trim
+clean_company_name <- function(company_name) {
+  company_name |>
+    tolower() |>
+    stringr::str_replace_all("(inc\\.?|llc|corp\\.?|corporation|investment|holdings)", "") |>
+    stringr::str_replace_all("[^a-z0-9]", "") |>
+    stringr::str_trim()
+}
+
+#' Clean First and Last Name
+#'
+#' @description
+#' Cleanse and format a first and last name by removing any trailing initials.
+#'
+#' @param first_name Character string representing the first name to be cleaned.
+#' @param last_name Character string representing the last name to be cleaned.
+#'
+#' @returns
+#' A character string representing the cleansed and formatted full name.
+#'
+#' @export
+#'
+#' @importFrom stringr str_replace_all str_trim
+clean_first_last_name <- function(first_name, last_name) {
+
+  first_name <- stringr::str_replace_all(first_name, "\\s*\\w+\\.$", "")
+
+  paste0(
+    stringr::str_trim(first_name),
+    " ",
+    stringr::str_trim(last_name)
+  ) |>
+    stringr::str_replace_all("\\s+", " ")
+
+}
+
 #' Validate Address Format
 #'
 #' @description
@@ -130,4 +179,24 @@ get_domain_from_url <- function(url) {
   url |>
     stringr::str_replace_all("https?://(www\\.)?", "") |>
     stringr::str_extract("^[^/]+")
+}
+
+#' Calculate String Similarity
+#'
+#' @description
+#' Calculate the similarity between two strings using the Jaro-Winkler distance method.
+#'
+#' @param string1 A character string representing the first string.
+#' @param string2 A character string representing the second string.
+#'
+#' @returns
+#' A numeric value between 0 and 1 representing the similarity between the two strings.
+#'
+#' @export
+#'
+#' @importFrom stringdist stringdist
+string_similarity <- function(string1, string2) {
+  string1 <- tolower(string1)
+  string2 <- tolower(string2)
+  1 - (stringdist::stringdist(string1, string2, method = "jw") / max(nchar(string1), nchar(string2)))
 }

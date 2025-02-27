@@ -11,11 +11,13 @@ Depends:
 Imports: 
     cli,
     config,
-    ellmer,
     googleway,
+    httr2,
     pingr,
     purrr,
     rlang,
+    snakecase,
+    stringdist,
     stringr
 Encoding: UTF-8
 Language: en-US

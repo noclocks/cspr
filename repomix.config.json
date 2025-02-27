@@ -1,0 +1,29 @@
+{
+  "output": {
+    "filePath": "dev/cspr.repomix-output.md",
+    "style": "markdown",
+    "fileSummary": true,
+    "directoryStructure": true,
+    "removeComments": false,
+    "removeEmptyLines": false,
+    "topFilesLength": 5,
+    "showLineNumbers": false,
+    "copyToClipboard": false
+  },
+  "include": [],
+  "ignore": {
+    "useGitignore": true,
+    "useDefaultPatterns": true,
+    "customPatterns": [
+      "dev/",
+      ".Rproj.user/",
+      "docs/",
+      "man/",
+      "config.yml",
+      "*.Rproj"
+    ]
+  },
+  "security": {
+    "enableSecurityCheck": true
+  }
+}

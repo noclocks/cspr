@@ -2,3 +2,6 @@
 ^\.Rproj\.user$
 ^dev$
 ^data-raw$
+^repomix\.config\.json$
+^\.repomixignore$
+^config\.yml$
