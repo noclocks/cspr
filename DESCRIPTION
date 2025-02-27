@@ -11,6 +11,8 @@ Depends:
 Imports: 
     cli,
     config,
+    dplyr,
+    glue,
     googleway,
     httr2,
     pingr,
