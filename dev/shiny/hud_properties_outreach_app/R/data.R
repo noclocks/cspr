@@ -1,0 +1,23 @@
+hud_data <- tibble::tibble(
+  market = c("El Paso", "South Bend", "Boston", "Montana", "Indianapolis", "Charlotte"),
+  property_name = c("Town Center at Montecillo, The", "Mill at Ironworks Plaza Phase II, The", "Lyra", "19th and Graf", "City Heights", "SILK"),
+  property_address = c("North Mesa Street & Montecillo Blvd", "235 Ironworks Avenue", "252 Huntington Avenue", "2900 South 21st Avenue", "4576 Madison Avenue", "123 Main St"),
+  property_city = c("El Paso", "Mishawaka", "Boston", "Bozeman", "Indianapolis", "Kannapolis"),
+  property_state = c("TX", "IN", "MA", "MT", "IN", "NC"),
+  property_zip = c("79912", "46544", "02115", "59718", "46227", "28083"),
+  units = c(188, 227, 432, 450, 200, 198),
+  owner_company = c("EPT Land Communities", "Flaherty & Collins Properties", "Toll Brothers Apartment Living", "Braxton Development", "Pedcor Companies", "Pedcor Companies"),
+  owner_first_name = c("Richard", "Jim", "John", "Will", "Phillip J.", "Phillip J."),
+  owner_last_name = c("Aguilar", "Crossin", "McCullough", "Ralph", "Stoffregen", "Stoffregen"),
+  owner_address = c("444 Executive Center Blvd #238", "1 Indiana Square #3000", "1140 Virginia Drive", "1735 South 19th Avenue Suite B", "1 Pedcor Square", "1 Pedcor Square"),
+  owner_city = c("El Paso", "Indianapolis", "Fort Washington", "Bozeman", "Carmel", "Carmel"),
+  owner_state = c("TX", "IN", "PA", "MT", "IN", "IN"),
+  owner_zip = c("79902", "46204", "19034", "59718", "46032", "46032"),
+  owner_phone = c("9158388100", "3178169300", "2159388230", "4065828100", "3175870320", "3175870320"),
+  owner_email = c(NA, "jcrossin@flco.com", NA, NA, NA, NA),
+  loan_type = c("Construction", "Construction", "Construction", "Construction", "Construction", "Construction"),
+  loan_amount = c(38.1943, 34.6200, 74.5000, 50.9797, 29.0000, 37.5150),
+  loan_interest_rate = c(3.25, 2.35, 3.35, 3.03, 3.32, 2.26),
+  property_location_latitude = c(31.81299, 41.66381, 42.34204, 45.64994, 39.69655, 35.45745),
+  property_location_longitude = c(-106.51149, -86.18534, -71.08521, -111.06519, -86.15141, -80.59750)
+)
