@@ -18,13 +18,73 @@
 #'
 #' - `type_gmaps_geocode_address()`: Defines the structure for geocoded address data.
 #' - `type_gmaps_place_details()`: Defines the structure for place details data.
-#' - `type_clean_address()`: Defines the structure for cleaned address data.
-#' - `type_domain_from_url()`: Defines the structure for domain extracted from URL data.
-#' - `type_gmaps_results()`: Defines the structure for Google Maps results data.
+#' - `type_hunter_email_address()`: Defines the structure for email address data.
+#' - `type_owner_contact()`: Defines the structure for property owner contact information.
+#' - `type_property_analysis()`: Defines the structure for property analysis data.
+#' - `type_email_draft()`: Defines the structure for an email draft.
 #'
 #' @returns
 #' Each function returns an [ellmer::type_object()] definition object.
 NULL
+
+#' @rdname types
+#' @export
+#' @importFrom ellmer type_object type_string type_number type_array
+type_gmaps_geocode_address <- function() {
+
+  ellmer::type_object(
+    .description = "Geocoded address data retrieved from Google Maps Geocoding API.",
+    formatted_address = ellmer::type_string("The formatted address."),
+    latitude = ellmer::type_number("The latitude coordinate."),
+    longitude = ellmer::type_number("The longitude coordinate."),
+    place_id = ellmer::type_string("The unique place ID."),
+    place_types = ellmer::type_array(
+      "The types associated with the address.",
+      items = ellmer::type_string()
+    )
+  )
+
+}
+
+#' @rdname types
+#' @export
+#' @importFrom ellmer type_object type_string type_number type_array
+type_gmaps_place_details <- function() {
+
+  ellmer::type_object(
+    .description = "Details of a place retrieved from Google Maps Places API.",
+    name = ellmer::type_string("The name of the company located at the place.", required = FALSE),
+    address = ellmer::type_string("The formatted address of the place.", required = FALSE),
+    phone = ellmer::type_string("The phone number of the place.", required = FALSE),
+    business_status = ellmer::type_string("The business status of the place.", required = FALSE),
+    business_type = ellmer::type_string("The primary business type of the place.", required = FALSE),
+    latitude = ellmer::type_number("The latitude coordinate of the place.", required = FALSE),
+    longitude = ellmer::type_number("The longitude coordinate of the place.", required = FALSE),
+    website = ellmer::type_string("The website of the place.", required = FALSE),
+    domain = ellmer::type_string("The domain of the website.", required = FALSE),
+    google_maps_url = ellmer::type_string("The Google Maps URL of the place.", required = FALSE),
+    place_id = ellmer::type_string("The Google Maps unique Place ID.", required = FALSE)
+  )
+
+}
+
+#' @rdname types
+#' @export
+#' @importFrom ellmer type_object type_string type_number
+type_hunter_email_address <- function() {
+
+  ellmer::type_object(
+    .description = "Email address and other information retrieved using the Hunter.io email-finder API.",
+    first_name = ellmer::type_string("The first name of the contact."),
+    last_name = ellmer::type_string("The last name of the contact."),
+    email = ellmer::type_string("The email address of the contact."),
+    score = ellmer::type_number("The confidence score of the email address (0-100)."),
+    domain = ellmer::type_string("The domain associated with the email address."),
+    company = ellmer::type_string("The company associated with the email address."),
+    verification_date = ellmer::type_string("The date when the email address was verified (YYYY-MM-DD format).")
+  )
+
+}
 
 #' @rdname types
 #' @export
@@ -85,68 +145,4 @@ type_email_draft <- function() {
     send_date = ellmer::type_string("The date when the email is scheduled to be sent (YYYY-MM-DD format).")
   )
 
-}
-
-#' @rdname types
-#' @export
-#' @importFrom ellmer type_object type_string type_number
-type_gmaps_geocode_address <- function() {
-  ellmer::type_object(
-    status = ellmer::type_string("The status of the API request."),
-    formatted_address = ellmer::type_string("The formatted address."),
-    place_id = ellmer::type_string("The place ID."),
-    place_types = ellmer::type_string("The place types."),
-    latitude = ellmer::type_number("The latitude."),
-    longitude = ellmer::type_number("The longitude.")
-  )
-}
-
-#' @rdname types
-#' @export
-#' @importFrom ellmer type_object type_string type_number
-type_gmaps_place_details <- function() {
-  ellmer::type_object(
-    status = ellmer::type_string("The status of the API request."),
-    name = ellmer::type_string("The name of the place."),
-    formatted_address = ellmer::type_string("The formatted address."),
-    place_id = ellmer::type_string("The place ID."),
-    place_types = ellmer::type_string("The place types."),
-    latitude = ellmer::type_number("The latitude."),
-    longitude = ellmer::type_number("The longitude.")
-  )
-}
-
-#' @rdname types
-#' @export
-#' @importFrom ellmer type_object type_string
-type_clean_address <- function() {
-  ellmer::type_object(
-    address = ellmer::type_string("The cleaned address.")
-  )
-}
-
-#' @rdname types
-#' @export
-#' @importFrom ellmer type_object type_string
-type_domain_from_url <- function() {
-  ellmer::type_object(
-    domain = ellmer::type_string("The domain extracted from the URL.")
-  )
-}
-
-#' @rdname types
-#' @export
-#' @importFrom ellmer type_object type_string type_number
-type_gmaps_results <- function() {
-  ellmer::type_object(
-    company_name = ellmer::type_string("The name of the company."),
-    company_address_full = ellmer::type_string("The full address of the company."),
-    company_website = ellmer::type_string("The website of the company."),
-    company_domain = ellmer::type_string("The domain of the company."),
-    company_phone = ellmer::type_string("The phone number of the company."),
-    gmaps_place_id = ellmer::type_string("The place ID."),
-    gmaps_place_types = ellmer::type_string("The place types."),
-    latitude = ellmer::type_number("The latitude."),
-    longitude = ellmer::type_number("The longitude.")
-  )
 }
