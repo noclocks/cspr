@@ -124,44 +124,6 @@ clean_first_last_name <- function(first_name, last_name) {
 
 }
 
-#' Validate Address Format
-#'
-#' @description
-#' Validate the format of a street address by checking if it is in the expected
-#' format with the street number and name.
-#'
-#' @param address A character string with the address string to validate.
-#'
-#' @returns
-#' List with two elements: `valid` (logical) and `address` (character).
-#'
-#' @export
-#'
-#' @importFrom stringr str_detect
-validate_address <- function(address) {
-
-  has_number <- stringr::str_detect(address, "^\\d+\\s+\\w+")
-  has_street <- stringr::str_detect(
-    address,
-    "\\s(St|Street|Ave|Avenue|Blvd|Boulevard|Dr|Drive|Rd|Road|Ln|Lane|Way|Pkwy|Parkway|Cir|Circle|Ct|Court|Pl|Place|Ter|Terrace)"
-  )
-
-  if (!has_number || !has_street) {
-    return(
-      list(
-        valid = FALSE,
-        address = address
-      )
-    )
-  }
-
-  list(
-    valid = TRUE,
-    address = address
-  )
-
-}
-
 #' Get Domain from URL
 #'
 #' @description
@@ -200,3 +162,25 @@ string_similarity <- function(string1, string2) {
   string2 <- tolower(string2)
   1 - (stringdist::stringdist(string1, string2, method = "jw") / max(nchar(string1), nchar(string2)))
 }
+
+# checks ----------------------------------------------------------------------------------------------------------
+
+check_inherits <- function(x, class, x_arg = rlang::caller_arg(x), call = rlang::caller_env()) {
+  if (!inherits(x, class)) {
+    cli::cli_abort(
+      "{.arg {x_arg}} must inherit from class {.cls {class}}, not {.obj_type_friendly {x}}.",
+      call = call
+    )
+  }
+  invisible(NULL)
+}
+
+check_installed <- function(pkg, call = rlang::caller_env()) {
+  if (!is_installed(x)) {
+    cli::cli_abort("Package {.pkg {pkg}} is not installed.", call = call)
+  }
+  invisible(NULL)
+}
+
+interactive <- NULL
+

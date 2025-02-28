@@ -363,3 +363,71 @@ gmaps_find_best_match <- function(places, company_name, company_address, company
 
 }
 
+
+# geocode ---------------------------------------------------------------------------------------------------------
+
+#' Geocode Address
+#'
+#' @description
+#' Geocode an address using the Google Maps Geocoding API.
+#'
+#' @param address A character string representing the address to geocode.
+#' @param api_key A character string representing the Google Maps API key.
+#'   Will default to the result from [get_gmaps_api_key()].
+#'
+#' @returns
+#' A list containing the following elements:
+#'
+#' - `status`: A character string indicating the status of the API request.
+#' - `formatted_address`: A character string representing the formatted address.
+#' - `place_id`: A character string representing the place ID.
+#' - `place_types`: A character string representing the place types.
+#' - `latitude`: A numeric value representing the latitude.
+#' - `longitude`: A numeric value representing the longitude.
+#'
+#' @export
+#'
+#' @importFrom googleway google_geocode
+#' @importFrom purrr pluck
+gmaps_geocode_address <- function(address, api_key = get_gmaps_api_key()) {
+
+  cli::cli_alert_info("Geocoding address: {.field {address}}.")
+
+  googleway::set_key(api_key)
+
+  tryCatch({
+    resp <- googleway::google_geocode(address = address)
+    # gmaps_check_response(resp)
+    results <- purrr::pluck(resp, "results")
+    formatted_address <- purrr::pluck(results, "formatted_address")
+    place_id <- purrr::pluck(results, "place_id")
+    place_types <- purrr::pluck(results, "types", 1)
+    location <- purrr::pluck(results, "geometry", "location")
+    latitude <- purrr::pluck(location, "lat")
+    longitude <- purrr::pluck(location, "lng")
+
+    return(
+      list(
+        status = "OK",
+        formatted_address = formatted_address,
+        place_id = place_id,
+        place_types = place_types,
+        latitude = latitude,
+        longitude = longitude
+      )
+    )
+  }, error = function(e) {
+    return(
+      list(
+        status = "ERROR",
+        error = as.character(e$message),
+        formatted_address = NA,
+        place_id = NA,
+        place_types = NA,
+        latitude = NA,
+        longitude = NA
+      )
+    )
+  })
+
+}

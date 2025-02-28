@@ -52,7 +52,11 @@ mod_properties_server <- function(id, selected_property = NULL) {
         selected_property <- shiny::reactiveVal(NULL)
       }
 
-      # Render the properties table
+      tbl_data <- shiny::reactive({
+        hud_data
+      })
+
+      # render the properties table
       output$properties_table <- reactable::renderReactable({
         reactable::reactable(
           hud_data,
@@ -75,6 +79,13 @@ mod_properties_server <- function(id, selected_property = NULL) {
           leaflet::addTiles() %>%
           leaflet::addMarkers(~longitude, ~latitude, popup = ~market)
       })
+
+      return(
+        list(
+          selected_property = selected_property,
+          properties_data = tbl_data
+        )
+      )
 
     }
   )

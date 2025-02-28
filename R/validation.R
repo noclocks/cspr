@@ -149,3 +149,42 @@ validate_domain <- function(domain) {
   return(TRUE)
 
 }
+
+#' Validate Address Format
+#'
+#' @description
+#' Validate the format of a street address by checking if it is in the expected
+#' format with the street number and name.
+#'
+#' @param address A character string with the address string to validate.
+#'
+#' @returns
+#' List with two elements: `valid` (logical) and `address` (character).
+#'
+#' @export
+#'
+#' @importFrom stringr str_detect
+validate_address <- function(address) {
+
+  has_number <- stringr::str_detect(address, "^\\d+\\s+\\w+")
+  has_street <- stringr::str_detect(
+    address,
+    "\\s(St|Street|Ave|Avenue|Blvd|Boulevard|Dr|Drive|Rd|Road|Ln|Lane|Way|Pkwy|Parkway|Cir|Circle|Ct|Court|Pl|Place|Ter|Terrace)"
+  )
+
+  if (!has_number || !has_street) {
+    return(
+      list(
+        valid = FALSE,
+        address = address
+      )
+    )
+  }
+
+  list(
+    valid = TRUE,
+    address = address
+  )
+
+}
+

@@ -2,11 +2,20 @@
 % Please edit documentation in R/types.R
 \name{types}
 \alias{types}
+\alias{type_gmaps_geocode_address}
+\alias{type_gmaps_place_details}
+\alias{type_hunter_email_address}
 \alias{type_owner_contact}
 \alias{type_property_analysis}
 \alias{type_email_draft}
 \title{Types}
 \usage{
+type_gmaps_geocode_address()
+
+type_gmaps_place_details()
+
+type_hunter_email_address()
+
 type_owner_contact()
 
 type_property_analysis()
@@ -23,8 +32,9 @@ Functions:
 \itemize{
 \item \code{type_gmaps_geocode_address()}: Defines the structure for geocoded address data.
 \item \code{type_gmaps_place_details()}: Defines the structure for place details data.
-\item \code{type_clean_address()}: Defines the structure for cleaned address data.
-\item \code{type_domain_from_url()}: Defines the structure for domain extracted from URL data.
-\item \code{type_gmaps_results()}: Defines the structure for Google Maps results data.
+\item \code{type_hunter_email_address()}: Defines the structure for email address data.
+\item \code{type_owner_contact()}: Defines the structure for property owner contact information.
+\item \code{type_property_analysis()}: Defines the structure for property analysis data.
+\item \code{type_email_draft()}: Defines the structure for an email draft.
 }
 }

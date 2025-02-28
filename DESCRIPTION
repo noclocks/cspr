@@ -12,15 +12,18 @@ Imports:
     cli,
     config,
     dplyr,
+    ellmer,
     glue,
     googleway,
     httr2,
+    memoise,
     pingr,
     purrr,
-    rlang,
+    rlang (>= 1.1.0),
     snakecase,
     stringdist,
-    stringr
+    stringr,
+    utils
 Encoding: UTF-8
 Language: en-US
 LazyData: true

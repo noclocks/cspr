@@ -3,10 +3,13 @@
 \name{tools}
 \alias{tools}
 \alias{tool_gmaps_places_search}
+\alias{tool_gmaps_geocode_address}
 \alias{tool_hunter_get_email_address}
 \title{Tools}
 \usage{
 tool_gmaps_places_search()
+
+tool_gmaps_geocode_address()
 
 tool_hunter_get_email_address()
 }
@@ -20,6 +23,7 @@ Functions:
 \itemize{
 \item \code{tool_gmaps_places_search()}: Search for places using Google Maps Places API to find website and
 contact information.
+\item \code{tool_gmaps_geocode_address()}: Geocode an address using the Google Maps Geocoding API.
 \item \code{tool_hunter_get_email_address()}: Retrieve an email address based on the provided company domain, company name,
 and person's first and last name using the Hunter.io API.
 }
