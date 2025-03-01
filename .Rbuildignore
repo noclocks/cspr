@@ -9,3 +9,13 @@
 ^docs$
 ^pkgdown$
 ^\.github$
+^codecov\.yml$
+^\.covrignore$
+~\$.*
+_\.new\.png$
+^\.lintr$
+^\.gitattributes$
+^\.editorconfig$
+^codemeta\.json$
+^\.dockerignore$
+^Dockerfile$

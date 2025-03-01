@@ -1,7 +1,8 @@
 
-# Charles Street Partners R Package - `cspr`
+# Charles Street Partners R Package - `cspr` <a href="http://docs.noclocks.dev/cspr/"><img src="man/figures/logo.png" align="right" height="62" alt="cspr website" /></a>
 
 <!-- badges: start -->
+[![Codecov test coverage](https://codecov.io/gh/noclocks/cspr/graph/badge.svg)](https://app.codecov.io/gh/noclocks/cspr)
 <!-- badges: end -->
 
 ## Overview
