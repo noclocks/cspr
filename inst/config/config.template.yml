@@ -1,0 +1,11 @@
+default:
+  openai_api_key: "<OPENAI_API_KEY>"
+  gemini_api_key: "<GEMINI_API_KEY>"
+  gmaps_api_key: "<GMAPS_API_KEY>"
+  hunterio_api_key: "<HUNTERIO_API_KEY>"
+  anymailfinder_api_key: "<ANYMAILFINDER_API_KEY>"
+  attom_api_key: "<ATTOM_API_KEY>"
+  search_api_key: "<SEARCH_API_KEY>"
+  serp_api_key: "<SERP_API_KEY>"
+  tavily_api_key: "<TAVILY_API_KEY>"
+
