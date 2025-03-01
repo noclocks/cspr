@@ -123,8 +123,21 @@ if (!dir.exists(working_dir)) {
   dir.create(working_dir, recursive = TRUE)
 }
 
-readr::write_csv(hud_data, file.path(working_dir, "hud_data.csv"))
-readr::write_csv(hud_owners, file.path(working_dir, "hud_owners.csv"))
+hud_csv <- file.path(working_dir, "hud_data.csv")
+readr::write_csv(hud_data, hud_csv)
+cli::cli_alert_success("Saved {.field hud_data} to {.file {hud_csv}}.")
 
-usethis::use_data(hud_data, overwrite = TRUE)
-usethis::use_data(hud_owners, overwrite = TRUE)
+owners_csv <- file.path(working_dir, "hud_owners.csv")
+readr::write_csv(hud_owners, owners_csv)
+cli::cli_alert_success("Saved {.field hud_owners} to {.file {owners_csv}}.")
+
+# cleanup
+rm(
+  xl_file,
+  col_specs,
+  working_dir,
+  hud_csv,
+  owners_csv
+)
+
+cli::cli_alert_success("HUD data has been successfully processed and saved.")
