@@ -6,7 +6,7 @@
 \usage{
 initialize_chat(
   model = "gpt-4o",
-  system_prompt = default_prompt(),
+  system_prompt = prompt_default(),
   api_key = get_openai_api_key(),
   echo = c("none", "text", "all")
 )

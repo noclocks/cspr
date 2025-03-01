@@ -6,8 +6,8 @@
 \alias{type_gmaps_place_details}
 \alias{type_hunter_email_address}
 \alias{type_property_investment_analysis}
+\alias{type_hud_data}
 \alias{type_owner_contact}
-\alias{type_property_analysis}
 \alias{type_email_draft}
 \title{Types}
 \usage{
@@ -19,9 +19,9 @@ type_hunter_email_address()
 
 type_property_investment_analysis()
 
-type_owner_contact()
+type_hud_data()
 
-type_property_analysis()
+type_owner_contact()
 
 type_email_draft()
 }
@@ -36,8 +36,9 @@ Functions:
 \item \code{type_gmaps_geocode_address()}: Defines the structure for geocoded address data.
 \item \code{type_gmaps_place_details()}: Defines the structure for place details data.
 \item \code{type_hunter_email_address()}: Defines the structure for email address data.
+\item \code{type_property_investment_analysis()}: Defines the structure for property investment analysis data.
+\item \code{type_hud_data()}: Defines the structure for HUD property loans dataset.
 \item \code{type_owner_contact()}: Defines the structure for property owner contact information.
-\item \code{type_property_analysis()}: Defines the structure for property analysis data.
 \item \code{type_email_draft()}: Defines the structure for an email draft.
 }
 }

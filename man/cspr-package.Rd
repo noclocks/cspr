@@ -6,17 +6,31 @@
 \alias{cspr-package}
 \title{cspr: What the Package Does (One Line, Title Case)}
 \description{
+\if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
+
 What the package does (one paragraph).
 }
 \seealso{
 Useful links:
 \itemize{
   \item \url{http://docs.noclocks.dev/cspr/}
+  \item \url{https://github.com/noclocks/cspr}
+  \item Report bugs at \url{https://github.com/noclocks/cspr/issues}
 }
 
 }
 \author{
 \strong{Maintainer}: Jimmy Briggs \email{jimmy.briggs@jimbrig.com} (\href{https://orcid.org/0000-0002-7489-8787}{ORCID})
+
+Authors:
+\itemize{
+  \item Patrick Howard \email{patrick.howard@noclocks.dev} [reviewer]
+}
+
+Other contributors:
+\itemize{
+  \item No Clocks, LLC \email{team@noclocks.dev} [copyright holder, funder]
+}
 
 }
 \keyword{internal}

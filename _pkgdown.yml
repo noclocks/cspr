@@ -1,4 +1,102 @@
 url: http://docs.noclocks.dev/cspr/
+
 template:
   bootstrap: 5
+  light-switch: true
+  bslib:
+    primary: "#121618"
+    border-radius: 0.5rem
+    btn-border-radius: 0.25rem
+    danger: "#A6081A"
+  includes:
+    in_header:
+      <script defer data-domain="docs.noclocks.dev" src="https://plausible.io/js/plausible.js"></script>
 
+development:
+  mode: auto
+
+home:
+  title: "Charles Street Partners R Package"
+
+authors:
+  Jimmy Briggs:
+    href: https://github.com/jimbrig
+  Patrick Howard:
+    href: https://github.com/phoward38
+  No Clocks, LLC:
+    href: https://github.com/noclocks
+
+reference:
+  - title: "Chats (Agents)"
+    desc: >-
+      Functions for initializing chats and extracting valuable information through chat interactions.
+    contents:
+      - initialize_chat
+  - title: "Prompts"
+    desc: >-
+      Functions for generating prompts and interpolating prompt templates.
+    contents:
+      - prompts
+      - starts_with("prompt_")
+  - title: "Types"
+    desc: >-
+      Functions for defining custom structured output types and input types for custom tools.
+    contents:
+      - types
+      - starts_with("type_")
+  - title: "Tools"
+    desc: >-
+      Functions defining custom tools that can be registered to chat sessions.
+    contents:
+      - tools
+      - starts_with("tool_")
+  - title: "Registration"
+    desc: >-
+      Functions for registering custom function calling tools to chat sessions.
+    contents:
+      - starts_with("register_")
+  - title: "Structured Outputs"
+    desc: >-
+      Functions for extracting structured outputs from chat interactions.
+    contents:
+      - starts_with("chat_extract_")
+  - title: "Google Maps API Integration"
+    desc: >-
+      Functions for interacting with Google Maps services, including geocoding and place search.
+    contents:
+      - starts_with("gmaps_")
+  - title: "Hunter.io API Integration"
+    desc: >-
+      Functions for interacting with the Hunter.io API for email address retrieval.
+    contents:
+      - starts_with("hunter_")
+  - title: "Configuration"
+    desc: >-
+      Functions for setting and getting API keys for various services.
+    contents:
+      - starts_with("set_")
+      - starts_with("get_")
+  - title: "Validation"
+    desc: >-
+      Functions to validate inputs, such as addresses, domains, and more.
+    contents:
+      - starts_with("validate_")
+  - title: "Checks"
+    desc: >-
+      Miscellaneous utility functions that perform various checks and operations.
+    contents:
+      - starts_with("check_")
+  - title: "General Utilities"
+    desc: >-
+      Miscellaneous utility functions that perform various checks and operations.
+    contents:
+      - pkg_sys
+  - title: "Text and Data Cleansing Utilities"
+    desc: >-
+      Functions for cleaning and processing text and data.
+    contents:
+      - clean_address
+      - clean_first_last_name
+      - clean_company_name
+      - get_domain_from_url
+      - string_similarity
