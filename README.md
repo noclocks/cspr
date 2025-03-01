@@ -12,6 +12,16 @@ needs of Charles Street Partners.
 It includes structured outputs, prompt templates, and custom tools for processing real-estate property owner company
 data by augmenting traditional API driven data retrieval with custom, agentic AI interactions.
 
+The package includes a variety of agentic features:
+
+- Chats (Agents) - see [R/chat.R](R/chat.R)
+- Prompts - see [R/prompts.R](R/prompts.R) and [inst/prompts/](inst/prompts/) 
+- Tool Calling - see [R/tools.R](R/tools.R) and [R/register.R](R/register.R) for registration functions.
+- Structured Outputs - see [R/types.R](R/types.R) and [R/chat.R](R/chat.R)'s extraction functions.
+- API Integration - see [R/gmaps.R](R/gmaps.R) and [R/hunter.R](R/hunter.R) for Google Maps and Hunter.io integration.
+- Configuration Management - see [R/config.R](R/config.R) for configuration settings.
+- Utilities and Validation - see [R/utils.R](R/utils.R) for utility functions and [R/validation.R](R/validation.R) for validation functions.
+
 ## Installation
 
 You can install the development version of cspr from [GitHub](https://github.com/) with:
@@ -61,7 +71,7 @@ included, custom structured outputs and prompt templates specific to the initial
 property investment analysis task.
 
 > [!NOTE]
-> *You can view the property investment opporitunity analysis evaluation prompt template here: [property_investment.prompt.md](inst/prompts/property_investment.prompt.md).
+> *You can view the property investment opporitunity analysis evaluation prompt template here: [property_investment.prompt.md](inst/prompts/property_investment.prompt.md).*
 
 ```R
 # perform a property investment analysis on the property w/ structured outputs
