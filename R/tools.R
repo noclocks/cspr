@@ -109,6 +109,9 @@ tool_hunter_get_email_address <- function() {
 
 }
 
+
+# custom types ----------------------------------------------------------------------------------------------------
+
 .gmaps_places_search_types <- list(
   company_name = ellmer::type_string("The name of the company to search for.", required = TRUE),
   company_address = ellmer::type_string("The address of the company to search for.", required = TRUE),
