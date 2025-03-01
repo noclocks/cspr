@@ -24,7 +24,7 @@
 #' @seealso [ellmer::chat_openai()] for creating a chat session.
 initialize_chat <- function(
     model = "gpt-4o",
-    system_prompt = default_prompt(),
+    system_prompt = prompt_default(),
     api_key = get_openai_api_key(),
     echo = c("none", "text", "all")
 ) {
@@ -63,7 +63,7 @@ initialize_chat <- function(
 chat_extract_property_investment_analysis <- function(chat, property_row) {
   check_chat(chat)
   check_row(property_row)
-  qry <- property_investment_prompt(property_row)
+  qry <- prompt_property_investment_user(property_row)
   resp <- chat$chat(qry)
   chat$extract_data(resp, type = type_property_investment_analysis())
 }

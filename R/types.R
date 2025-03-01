@@ -19,8 +19,9 @@
 #' - `type_gmaps_geocode_address()`: Defines the structure for geocoded address data.
 #' - `type_gmaps_place_details()`: Defines the structure for place details data.
 #' - `type_hunter_email_address()`: Defines the structure for email address data.
+#' - `type_property_investment_analysis()`: Defines the structure for property investment analysis data.
+#' - `type_hud_data()`: Defines the structure for HUD property loans dataset.
 #' - `type_owner_contact()`: Defines the structure for property owner contact information.
-#' - `type_property_analysis()`: Defines the structure for property analysis data.
 #' - `type_email_draft()`: Defines the structure for an email draft.
 #'
 #' @returns
@@ -140,6 +141,50 @@ type_property_investment_analysis <- function() {
 #' @rdname types
 #' @export
 #' @importFrom ellmer type_object type_string type_number type_array
+type_hud_data <- function() {
+  ellmer::type_array(
+    description = "Data structure for HUD property loans dataset.",
+    items = ellmer::type_object(
+      .description = "A single record representing a property loan in the HUD dataset.",
+      market = ellmer::type_string("The market where the property is located."),
+      property_name = ellmer::type_string("The name of the property."),
+      property_address = ellmer::type_string("The address of the property."),
+      property_city = ellmer::type_string("The city where the property is located."),
+      property_state = ellmer::type_string("The state where the property is located."),
+      property_zip = ellmer::type_string("The ZIP code of the property."),
+      units = ellmer::type_number("The number of units in the property."),
+      impr_rating = ellmer::type_string("The improvement rating of the property."),
+      loc_rating = ellmer::type_string("The location rating of the property."),
+      owner_company = ellmer::type_string("The name of the owner's company."),
+      owner_first_name = ellmer::type_string("The first name of the property owner."),
+      owner_last_name = ellmer::type_string("The last name of the property owner."),
+      owner_address = ellmer::type_string("The address of the property owner."),
+      owner_city = ellmer::type_string("The city where the property owner is located."),
+      owner_state = ellmer::type_string("The state where the property owner is located."),
+      owner_zip = ellmer::type_string("The ZIP code of the property owner."),
+      owner_phone = ellmer::type_string("The phone number of the property owner."),
+      owner_email = ellmer::type_string("The email address of the property owner."),
+      completion_date = ellmer::type_string("The completion date of the property."),
+      sale_date = ellmer::type_string("The sale date of the property."),
+      sale_price = ellmer::type_number("The sale price of the property."),
+      loan_type = ellmer::type_string("The type of loan associated with the property."),
+      loan_origination_date = ellmer::type_string("The origination date of the loan."),
+      loan_maturity_date = ellmer::type_string("The maturity date of the loan."),
+      loan_duration = ellmer::type_number("The duration of the loan."),
+      loan_amount = ellmer::type_number("The amount of the loan."),
+      loan_interest_rate = ellmer::type_number("The interest rate of the loan."),
+      loan_interest_type = ellmer::type_string("The type of interest rate for the loan."),
+      loan_lender = ellmer::type_string("The lender of the loan."),
+      loan_comments = ellmer::type_string("Comments or notes about the loan."),
+      property_location_latitude = ellmer::type_number("The latitude coordinate of the property location."),
+      property_location_longitude = ellmer::type_number("The longitude coordinate of the property location.")
+    )
+  )
+}
+
+#' @rdname types
+#' @export
+#' @importFrom ellmer type_object type_string type_number type_array
 type_owner_contact <- function() {
 
   ellmer::type_object(
@@ -152,27 +197,6 @@ type_owner_contact <- function() {
     company_address = ellmer::type_string("The address of the company associated with the property owner."),
     company_domain = ellmer::type_string("The domain of the company associated with the property owner (derived from the company website)."),
     confidence_score = ellmer::type_number("The confidence score of the contact information (0-100).")
-  )
-
-}
-
-#' @rdname types
-#' @export
-#' @importFrom ellmer type_object type_string type_number type_array
-type_property_analysis <- function() {
-
-  ellmer::type_object(
-    .description = "Analysis of a property's investment potential.",
-    property_address = ellmer::type_string("The address of the property."),
-    property_value = ellmer::type_number("The estimated value of the property."),
-    opporitunity_score = ellmer::type_number("Score indicating the investment potential of the property (0-100)."),
-    key_factors = ellmer::type_array(
-      "Key factors influencing the investment potential of the property.",
-      items = ellmer::type_string()
-    ),
-    recommendation = ellmer::type_string("Recommendation based on the analysis (e.g., 'Buy', 'Hold', 'Sell')."),
-    owner_contact = type_owner_contact(),
-    analysis_date = ellmer::type_string("The date of the analysis (YYYY-MM-DD format).")
   )
 
 }

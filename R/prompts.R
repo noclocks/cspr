@@ -7,37 +7,41 @@
 #
 #  ------------------------------------------------------------------------
 
-#' Default Prompt
+#' Prompts
+#'
+#' @name prompts
 #'
 #' @description
-#' Generate the default system prompt for the chat session.
+#' A collection of functions for generating prompts for the chat agent.
+#'
+#' Functions:
+#'
+#' - `prompt_default_sys()`: Generate the default system prompt for the chat session.
+#' - `prompt_property_investment_user()`: User prompt for property investment analysis.
+#'
+#' @param property_row A data frame representing a property record. Must be a single row.
 #'
 #' @returns
-#' A character string representing the default system prompt.
+#' - `prompt_default_sys()`: A character string representing the default system prompt.
+#' - `prompt_property_investment_user()`: A character string representing the prompt for property investment analysis.
 #'
+#' @seealso [ellmer::interpolate_file()]
+NULL
+
+#' @rdname prompts
 #' @export
-#'
 #' @importFrom ellmer interpolate_file
-default_prompt <- function() {
-  ellmer::interpolate_file(path = pkg_sys("prompts/default.prompt.md"))
+prompt_default_sys <- function() {
+  ellmer::interpolate_file(path = pkg_sys("prompts/default.system.prompt.md"))
 }
 
-#' Property Investment Prompt
-#'
-#' @description
-#' User prompt for property investment analysis.
-#'
-#' @param property_row A data frame representing a property record.
-#'
-#' @returns
-#' A character string representing the prompt for property investment analysis.
-#'
+#' @rdname prompts
 #' @export
-#'
 #' @importFrom ellmer interpolate_file
-property_investment_prompt <- function(property_row) {
+prompt_property_investment_user <- function(property_row) {
   ellmer::interpolate_file(
     path = pkg_sys("prompts/property_investment.prompt.md"),
     data = property_row
   )
 }
+
