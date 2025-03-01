@@ -10,8 +10,9 @@
 #' Initialize Chat
 #'
 #' @description
-#' Initialize a chat session with the OpenAI API using the `gpt-4o` model and
-#' register various tools for geocoding, address cleaning, and domain extraction.
+#' Initialize a chat session with the OpenAI API using the `gpt-4o` model (by default) and
+#' register the necessary custom function calling tools for performing property investent
+#' analysis, Google Maps API functions, and Hunter.io API functions.
 #'
 #' @returns
 #' An `ellmer::chat` object configured with the specified system prompt and tools.
@@ -23,18 +24,18 @@
 #' @seealso [ellmer::chat_openai()] for creating a chat session.
 initialize_chat <- function(
     model = "gpt-4o",
-    prompt = default_prompt()
+    system_prompt = default_prompt(),
+    api_key = get_openai_api_key(),
+    echo = c("none", "text", "all")
 ) {
 
-  if (!ellmer:::openai_key_exists()) {
-    cli::cli_abort(
-      "OpenAI API key is not set. Please set it using `ellmer::set_openai_key()`."
-    )
-  }
+  echo <- rlang::arg_match(echo)
 
   chat <- ellmer::chat_openai(
-    system_prompt = prompt,
-    model = model
+    system_prompt = system_prompt,
+    model = model,
+    echo = echo,
+    api_key = api_key
   )
 
   chat$register_tool(tool_gmaps_places_search())
@@ -43,6 +44,28 @@ initialize_chat <- function(
 
   return(chat)
 
+}
+
+# structured outputs ----------------------------------------------------------------------------------------------
+
+#' Extract Property Investment Analysis Results
+#'
+#' @description
+#' Extract the property investment analysis results from the chat response.
+#'
+#' @param chat An `ellmer::chat` object.
+#' @param property_row A single row from the HUD property dataset.
+#'
+#' @returns
+#' A list containing the property investment analysis information.
+#'
+#' @export
+chat_extract_property_investment_analysis <- function(chat, property_row) {
+  check_chat(chat)
+  check_row(property_row)
+  qry <- property_investment_prompt(property_row)
+  resp <- chat$chat(qry)
+  chat$extract_data(resp, type = type_property_investment_analysis())
 }
 
 #' Extract Owner Company Details

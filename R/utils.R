@@ -182,5 +182,21 @@ check_installed <- function(pkg, call = rlang::caller_env()) {
   invisible(NULL)
 }
 
-interactive <- NULL
+check_chat <- function(chat, arg = rlang::caller_arg(chat), call = rlang::caller_env()) {
+  check_inherits(chat, "Chat", x_arg = arg, call = call)
+  invisible(NULL)
+}
+
+check_tool <- function(tool, arg = rlang::caller_arg(tool), call = rlang::caller_env()) {
+  check_inherits(tool, "ellmer::ToolDef", x_arg = arg, call = call)
+  invisible(NULL)
+}
+
+check_row <- function(row, arg = rlang::caller_arg(row), call = rlang::caller_env()) {
+  check_inherits(row, "data.frame", x_arg = arg, call = call)
+  if (nrow(row) != 1) {
+    cli::cli_abort("{.arg {arg}} must be a single-row data frame.", call = call)
+  }
+  invisible(NULL)
+}
 

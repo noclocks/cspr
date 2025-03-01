@@ -88,6 +88,57 @@ type_hunter_email_address <- function() {
 
 #' @rdname types
 #' @export
+#' @importFrom ellmer type_object type_string type_number type_boolean
+type_property_investment_analysis <- function() {
+
+  ellmer::type_object(
+    .description = "Property investment evaluation analysis results",
+    property_name = ellmer::type_string(
+      "The name of the property that was evaluated.",
+      required = TRUE
+    ),
+    evaluation_score = ellmer::type_number(
+      "The evaluation score of the property (0-10).",
+      required = TRUE
+    ),
+    recommendation = ellmer::type_string(
+      "The overall recommendation based on the analysis about pursuing the investment opporitunity.",
+      required = TRUE
+    ),
+    proceed_with_email = ellmer::type_boolean(
+      "Whether to proceed with finding owner's contact email address for outreach.",
+      required = TRUE
+    ),
+    analysis_results = ellmer::type_object(
+      .description = "The detailed analysis results of the property evaluation.",
+      .required = TRUE,
+      loan_analysis = ellmer::type_string(
+        description = "Analysis of loan amount and interest rate",
+        required = FALSE
+      ),
+      units_analysis = ellmer::type_string(
+        description = "Analysis of the property's unit count and scale",
+        required = FALSE
+      ),
+      location_analysis = ellmer::type_string(
+        description = "Analysis of the property's location and ratings",
+        required = FALSE
+      ),
+      timeline_analysis = ellmer::type_string(
+        description = "Analysis of completion timeline and market timing",
+        required = FALSE
+      )
+    ),
+    additional_notes = ellmer::type_string(
+      description = "Any additional notes or observations",
+      required = FALSE
+    )
+  )
+
+}
+
+#' @rdname types
+#' @export
 #' @importFrom ellmer type_object type_string type_number type_array
 type_owner_contact <- function() {
 
