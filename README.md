@@ -60,6 +60,9 @@ Below is an example of how to perform a property investment analysis on the sele
 included, custom structured outputs and prompt templates specific to the initial 
 property investment analysis task.
 
+> [!NOTE]
+> *You can view the property investment opporitunity analysis evaluation prompt template here: [property_investment.prompt.md](inst/prompts/property_investment.prompt.md).
+
 ```R
 # perform a property investment analysis on the property w/ structured outputs
 resp <- chat_extract_property_investment_analysis(chat, property)
