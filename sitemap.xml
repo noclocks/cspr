@@ -1,6 +1,8 @@
 <urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
 <url><loc>http://docs.noclocks.dev/cspr/404.html</loc></url>
 <url><loc>http://docs.noclocks.dev/cspr/LICENSE-text.html</loc></url>
+<url><loc>http://docs.noclocks.dev/cspr/articles/cspr.html</loc></url>
+<url><loc>http://docs.noclocks.dev/cspr/articles/index.html</loc></url>
 <url><loc>http://docs.noclocks.dev/cspr/authors.html</loc></url>
 <url><loc>http://docs.noclocks.dev/cspr/index.html</loc></url>
 <url><loc>http://docs.noclocks.dev/cspr/reference/chat_extract_geocoded_address.html</loc></url>
@@ -8,12 +10,12 @@
 <url><loc>http://docs.noclocks.dev/cspr/reference/chat_extract_owner_company_details.html</loc></url>
 <url><loc>http://docs.noclocks.dev/cspr/reference/chat_extract_place_details.html</loc></url>
 <url><loc>http://docs.noclocks.dev/cspr/reference/chat_extract_property_investment_analysis.html</loc></url>
+<url><loc>http://docs.noclocks.dev/cspr/reference/checks.html</loc></url>
 <url><loc>http://docs.noclocks.dev/cspr/reference/clean_address.html</loc></url>
 <url><loc>http://docs.noclocks.dev/cspr/reference/clean_company_name.html</loc></url>
 <url><loc>http://docs.noclocks.dev/cspr/reference/clean_first_last_name.html</loc></url>
 <url><loc>http://docs.noclocks.dev/cspr/reference/config.html</loc></url>
 <url><loc>http://docs.noclocks.dev/cspr/reference/cspr-package.html</loc></url>
-<url><loc>http://docs.noclocks.dev/cspr/reference/default_prompt.html</loc></url>
 <url><loc>http://docs.noclocks.dev/cspr/reference/email_validation.html</loc></url>
 <url><loc>http://docs.noclocks.dev/cspr/reference/get_domain_from_url.html</loc></url>
 <url><loc>http://docs.noclocks.dev/cspr/reference/get_full_address.html</loc></url>
@@ -27,7 +29,7 @@
 <url><loc>http://docs.noclocks.dev/cspr/reference/index.html</loc></url>
 <url><loc>http://docs.noclocks.dev/cspr/reference/initialize_chat.html</loc></url>
 <url><loc>http://docs.noclocks.dev/cspr/reference/pkg_sys.html</loc></url>
-<url><loc>http://docs.noclocks.dev/cspr/reference/property_investment_prompt.html</loc></url>
+<url><loc>http://docs.noclocks.dev/cspr/reference/prompts.html</loc></url>
 <url><loc>http://docs.noclocks.dev/cspr/reference/register_tool.html</loc></url>
 <url><loc>http://docs.noclocks.dev/cspr/reference/string_similarity.html</loc></url>
 <url><loc>http://docs.noclocks.dev/cspr/reference/tools.html</loc></url>
