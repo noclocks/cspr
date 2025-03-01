@@ -5,6 +5,7 @@
 \alias{type_gmaps_geocode_address}
 \alias{type_gmaps_place_details}
 \alias{type_hunter_email_address}
+\alias{type_property_investment_analysis}
 \alias{type_owner_contact}
 \alias{type_property_analysis}
 \alias{type_email_draft}
@@ -15,6 +16,8 @@ type_gmaps_geocode_address()
 type_gmaps_place_details()
 
 type_hunter_email_address()
+
+type_property_investment_analysis()
 
 type_owner_contact()
 

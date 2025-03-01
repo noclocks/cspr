@@ -4,14 +4,20 @@
 \alias{initialize_chat}
 \title{Initialize Chat}
 \usage{
-initialize_chat(model = "gpt-4o", prompt = default_prompt())
+initialize_chat(
+  model = "gpt-4o",
+  system_prompt = default_prompt(),
+  api_key = get_openai_api_key(),
+  echo = c("none", "text", "all")
+)
 }
 \value{
 An \code{ellmer::chat} object configured with the specified system prompt and tools.
 }
 \description{
-Initialize a chat session with the OpenAI API using the \verb{gpt-4o} model and
-register various tools for geocoding, address cleaning, and domain extraction.
+Initialize a chat session with the OpenAI API using the \verb{gpt-4o} model (by default) and
+register the necessary custom function calling tools for performing property investent
+analysis, Google Maps API functions, and Hunter.io API functions.
 }
 \seealso{
 \code{\link[ellmer:chat_openai]{ellmer::chat_openai()}} for creating a chat session.
