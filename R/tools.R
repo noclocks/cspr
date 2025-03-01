@@ -26,6 +26,9 @@
 #' Each function returns an [ellmer::tool()] definition object.
 NULL
 
+
+# google maps places search ---------------------------------------------------------------------------------------
+
 #' @rdname tools
 #' @export
 #' @importFrom ellmer tool
@@ -51,6 +54,9 @@ tool_gmaps_places_search <- function() {
 
 }
 
+
+# google maps geocode address -------------------------------------------------------------------------------------
+
 #' @rdname tools
 #' @export
 #' @importFrom ellmer tool
@@ -74,6 +80,9 @@ tool_gmaps_geocode_address <- function() {
   )
 
 }
+
+
+# hunter.io email finder ------------------------------------------------------------------------------------------
 
 #' @rdname tools
 #' @export
@@ -116,3 +125,4 @@ tool_hunter_get_email_address <- function() {
   first_name = ellmer::type_string("The person's first name to search for.", required = TRUE),
   last_name = ellmer::type_string("The person's last name to search for.", required = TRUE)
 )
+
