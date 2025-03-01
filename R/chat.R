@@ -46,6 +46,28 @@ initialize_chat <- function(
 
 }
 
+# structured outputs ----------------------------------------------------------------------------------------------
+
+#' Extract Property Investment Analysis Results
+#'
+#' @description
+#' Extract the property investment analysis results from the chat response.
+#'
+#' @param chat An `ellmer::chat` object.
+#' @param property_row A single row from the HUD property dataset.
+#'
+#' @returns
+#' A list containing the property investment analysis information.
+#'
+#' @export
+chat_extract_property_investment_analysis <- function(chat, property_row) {
+  check_chat(chat)
+  check_row(property_row)
+  qry <- property_investment_prompt(property_row)
+  resp <- chat$chat(qry)
+  chat$extract_data(resp, type = type_property_investment_analysis())
+}
+
 #' Extract Owner Company Details
 #'
 #' @description
